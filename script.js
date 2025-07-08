@@ -1,17 +1,17 @@
 // Your code here.
 const cubes = document.querySelectorAll('.cube');
-const container = document.querySelectorAll('.container');
+const container = document.querySelector('.container');
 
 let activeCube = null;
 let offsetX = 0;
 let offsetY = 0;
 
 cubes.forEach(cube => {
-	cube,addEventListener('mousedown', (e) => {
+	cube.addEventListener('mousedown', (e) => {
 		activeCube = cube;
 		// Get the initial mouse position and cube position
-		offsetX = e.clientX = cube.getBoundingClientReact().left;
-		offsetY = e.clientY = cube.getBoundingClientReact().top;
+		offsetX = e.clientX - cube.getBoundingClientRect().left;
+		offsetY = e.clientY - cube.getBoundingClientRect().top;
 
 		// Add mousemove and mouseup listeners
 		document.addEventListener('mousemove', onMouseMove);
